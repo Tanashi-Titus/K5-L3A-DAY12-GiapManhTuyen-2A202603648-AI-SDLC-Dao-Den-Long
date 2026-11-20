@@ -5,7 +5,7 @@
 - **Phase 1:** Tách mô phỏng khỏi WebGL, tạo CLI JSONL và dùng seed để có thể phát lại tình huống. Cách làm không phụ thuộc engine ngoài giúp chạy được cả trình duyệt lẫn headless.
 - **Phase 2:** Bổ sung di chuyển theo camera, dash, pause, gió, Drifter và bùa gió. Phản hồi chơi thử phát hiện hướng trái/phải bị ngược và Bóng Mực đứng yên khi chưa thấy Mây; các scenario tuần tra ngoài vùng phát hiện được thêm vào verifier.
 - **Phase 3:** Ticket thay điều kiện thắng sớm bằng sống đến bình minh, thêm nhiên liệu và khả năng hút dầu. Changelog/ADR và test ngưỡng bình minh giúp phân biệt luật mới với các output lịch sử Phase 1.
-- **Phase 4:** Thêm leaderboard, công cụ benchmark/soak và cài đặt trợ năng. `build`, verifier và soak đã có bằng chứng trong `docs/proof`; benchmark trình duyệt, ảnh/GIF, video, tag và Release cần hoàn tất theo trạng thái ở checklist nộp bài.
+- **Phase 4:** Thêm leaderboard, công cụ benchmark/soak và cài đặt trợ năng. `build`, verifier, soak, ảnh/video, tag `phase-4` và Release `v1.0.0` đã có. Benchmark browser vẫn thiếu report hợp lệ; tag `phase-1` đến `phase-3` không thể gắn đúng vì lịch sử không có commit game ở các phase đó.
 
 ## Dùng AI: điều hiệu quả và lỗi phát hiện được
 

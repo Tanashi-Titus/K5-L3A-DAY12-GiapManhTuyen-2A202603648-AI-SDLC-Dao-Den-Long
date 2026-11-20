@@ -71,4 +71,4 @@ Các phần trình bày nằm trong [renderer](src/renderer.js); kiểm tra mô 
 - [Ghi chú Phase 4](docs/notes/phase-4.md), [retro](docs/notes/retro.md), [bằng chứng Phase 1](docs/proof/phase-1.md), [Phase 2](docs/proof/phase-2.md), [Phase 3](docs/proof/phase-3.md), [Phase 4](docs/proof/phase-4.md).
 - [Kịch bản quay video demo và vị trí lưu media](docs/demo/QUAY-DEMO.md).
 - [Hướng dẫn agent](AGENTS.md), [CREDITS](CREDITS.md), [LICENSE](LICENSE), [checklist nộp bài](SUBMISSION.md).
-- Trạng thái checkout trước đó chưa có tag Git; kiểm tra lại tag `phase-1` đến `phase-4` và Release `v1.0.0` trên GitHub trước khi nộp.
+- Repo đang Public; tag `phase-4`, tag `v1.0.0` và Release `v1.0.0` đã được đẩy lên GitHub. Tag `phase-1` đến `phase-3` còn thiếu vì lịch sử hiện có không lưu các commit game ở những mốc đó.

@@ -16,8 +16,8 @@ Ngày kiểm tra: 2026-11-20. Contract v1.3.
 
 - Benchmark browser chưa xuất được report. Chrome/Edge phần cứng trên máy này không khởi tạo ổn định; sau khi chuyển sang SwiftShader runner chưa nhận được tín hiệu scene-ready. Vì thế chưa có số FPS hợp lệ hoặc `bench.json`; không ghi số đo giả.
 - Đã bổ sung ảnh gameplay [gameplay.jpg](../demo/gameplay.jpg) và video demo [demo.mp4](../demo/demo.mp4). Video nguồn là WebM VP9/Opus được ghi nhầm đuôi `.mp4`; bản nộp đã chuyển sang MP4 H.264/AAC, thời lượng 4:12.7 (dưới 5 phút).
-- Checkout chưa có các tag phase hoặc Release `v1.0.0`; kiểm tra và tạo chúng trên GitHub theo checklist nộp bài.
-- Tag phase 1–3 cũng không có trong checkout trước khi bắt đầu; không tạo tag lịch sử trỏ sai commit.
+- Repo đang Public; tag `phase-4`, tag `v1.0.0` và Release `v1.0.0` đã được đẩy lên GitHub, Release có đính kèm gói web chạy được.
+- Tag `phase-1` đến `phase-3` còn thiếu: lịch sử checkout chỉ thêm source game ở commit Phase 4, nên không tạo tag lịch sử trỏ sai mã.
 
 Lệnh benchmark để chạy trên máy có Chrome/WebGL hoạt động:
 
