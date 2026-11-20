@@ -1,0 +1,14 @@
+{
+  "name": "dao-den-long",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node --check server.mjs && node --check src/sim.js && node --check src/cli.js && node --check src/main.js && node --check src/renderer.js && node --check src/audio.js && node --check src/leaderboard.js && node --check scripts/verify-headless.mjs && node --check scripts/bench.mjs && node --check scripts/soak.mjs",
+    "start": "node server.mjs",
+    "headless": "node src/cli.js",
+    "verify": "node scripts/verify-headless.mjs",
+    "bench": "node scripts/bench.mjs",
+    "soak": "node --expose-gc --jitless scripts/soak.mjs"
+  }
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101629"><title>Đảo Đèn Lồng</title>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    if (new URLSearchParams(location.search).get("bench") === "1") {
+      const report = (message) => fetch("/api/benchmark-error", { method: "POST", body: String(message).slice(0, 1000), keepalive: true }).catch(() => {});
+      addEventListener("error", (event) => report(event.message || "Module or asset failed to load"));
+      addEventListener("unhandledrejection", (event) => report(event.reason?.message || event.reason));
+    }
+  </script>
+</head>
+<body>
+<main class="game-shell">
+  <canvas id="scene" aria-label="Khung cảnh game Đảo Đèn Lồng"></canvas><div class="vignette"></div>
+  <header class="hud">
+    <div class="brand"><span class="brand-mark">✦</span><div><strong>ĐẢO ĐÈN LỒNG</strong><small id="night-label">ĐÊM 1 · ĐẢO BẾN</small></div></div>
+    <div class="hud-stats">
+      <div class="stat"><span class="stat-icon">♥</span><strong id="health">♥ ♥ ♥</strong><small>LỬA</small></div>
+      <div class="stat"><span class="stat-icon gold">✦</span><strong><span id="carried">0</span><span class="slash"> / <span id="capacity">10</span></span></strong><small>ĐOM ĐÓM</small></div>
+      <div class="stat timer-stat"><span class="stat-icon">◷</span><strong id="timer">04:00</strong><small>CÒN LẠI</small></div>
+      <div class="stat score-stat"><span class="stat-icon gold">★</span><strong id="score">0</strong><small>ĐIỂM</small></div>
+    </div>
+    <div class="objective"><i class="objective-dot"></i><span id="objective">Gom đom đóm cho đèn</span><b id="lantern-count">0 / 5</b></div>
+  </header>
+  <div class="mini-map"><canvas id="map" width="180" height="180"></canvas><span>BẢN ĐỒ ĐẢO</span></div>
+  <div class="toast" id="toast"></div>
+  <div class="wind-banner" id="wind-banner">Gió lớn đang tới — tìm chỗ vững!</div>
+  <div class="shade-warning" id="shade-warning" aria-live="polite" hidden><b>⚠ Bóng Mực xuất hiện</b><span id="shade-arrow" aria-label="Hướng Bóng Mực gần nhất">↑</span></div>
+  <div class="last-seconds-warning" id="last-seconds-warning" aria-live="polite" hidden>⚠ Còn dưới 10 giây</div>
+  <div class="ability-bar"><span id="pulse-meter">Q · TỎA SÁNG</span><span id="dash-meter">Shift · LƯỚT</span></div>
+  <div class="action-hints"><div><kbd>WASD</kbd><span>di chuyển</span></div><div><kbd>Q</kbd><span>tỏa sáng</span></div><div><kbd>E</kbd><span>thắp đèn</span></div><div><kbd>Shift</kbd><span>lướt</span></div><div><kbd>Esc</kbd><span>tạm dừng</span></div></div>
+  <div class="touch-pad"><div class="stick" id="stick"><span></span></div><div class="touch-actions"><button id="touch-jump">↑</button><button id="touch-dash">➤</button><button id="touch-pulse">Q</button><button id="touch-interact">E</button></div></div>
+  <section class="screen active" id="start-screen"><div class="intro-card"><div class="eyebrow">MỘT CHUYẾN PHIÊU LƯU ĐÊM</div><h1>Đảo Đèn Lồng</h1><p>Sương đêm đang phủ kín đảo. Hãy gom đom đóm, thắp lại những ngọn đèn và đưa ánh sáng trở về trước bình minh.</p><div class="menu-buttons"><button class="primary" id="start-button">Bắt đầu chuyến đi <span>→</span></button><button class="secondary" id="leaderboard-button">Bảng xếp hạng</button></div><div class="start-controls">WASD di chuyển <i>·</i> kéo chuột xoay camera</div></div></section>
+  <section class="screen" id="pause-screen"><div class="intro-card settings-card"><div class="eyebrow">ĐÊM <span id="pause-night">1</span></div><h2>Tạm nghỉ</h2><p>Đảo vẫn chờ Mây. Nghỉ một chút rồi tiếp tục hành trình nhé.</p><div class="menu-buttons"><button class="primary" id="resume-button">Tiếp tục</button><button class="secondary" id="pause-restart">Chơi lại đêm này</button><button class="secondary" id="settings-button">Cài đặt & dễ tiếp cận</button><button class="secondary" id="main-menu-button">Về màn hình đầu</button></div><div class="settings-row" id="settings-row" hidden><label>Âm lượng <input id="volume-setting" type="range" min="0" max="1" step=".05"></label><label>Độ nhạy chuột <input id="sensitivity-setting" type="range" min=".001" max=".01" step=".001"></label><label><input id="colorblind-setting" type="checkbox"> Bảng màu dễ phân biệt</label><label><input id="reduce-motion-setting" type="checkbox"> Giảm chuyển động</label><label><input id="large-text-setting" type="checkbox"> Chữ lớn (×1,25)</label><h3>Đổi phím</h3><div id="key-bindings" class="key-bindings"></div><p id="binding-message" class="setting-message" role="status"></p><button class="secondary" id="reset-bindings">Khôi phục phím mặc định</button></div></div></section>
+  <section class="screen" id="end-screen"><div class="intro-card end-card"><div class="eyebrow" id="end-eyebrow">ĐÊM 1</div><h2 id="end-title">Đảo đã sáng</h2><p id="end-copy"></p><div class="final-score"><span>TỔNG ĐIỂM ĐÊM ĐÃ THẮNG</span><strong id="final-score">0</strong></div><form id="score-form" class="score-form"><label for="score-name">Lưu bảng xếp hạng (3–12 ký tự)</label><div><input id="score-name" name="name" minlength="3" maxlength="12" pattern="[A-Za-z0-9_]{3,12}" autocomplete="nickname" required><button class="secondary" type="submit" id="save-score">Lưu điểm</button></div><p id="score-message" role="status"></p></form><div class="menu-buttons"><button class="primary" id="restart-button">Chơi lại</button><button class="secondary" id="next-night-button" hidden>Đêm tiếp theo →</button></div></div></section>
+  <section class="screen" id="leaderboard-screen"><div class="intro-card leaderboard-card"><div class="eyebrow">ĐẢO ĐÈN LỒNG</div><h2>Bảng xếp hạng</h2><ol id="leaderboard-list" class="leaderboard-list"></ol><p id="leaderboard-message" role="status"></p><button class="secondary" id="leaderboard-back">Về màn hình đầu</button></div></section>
+  <div class="render-error" id="render-error" hidden></div>
+</main><script type="module" src="/src/main.js"></script>
+</body></html>
