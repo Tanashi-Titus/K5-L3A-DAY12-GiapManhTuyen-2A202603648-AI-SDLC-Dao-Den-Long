@@ -22,12 +22,16 @@ Nếu làm lại, mình sẽ thêm kiểm tra cho mọi câu trả lời luật 
 
 ## Token và chi phí
 
-| Phase | Token/chi phí thực tế |
-|---|---|
-| 1 | Chưa lấy được số từ dashboard |
-| 2 | Chưa lấy được số từ dashboard |
-| 3 | Chưa lấy được số từ dashboard |
-| 4 | Chưa lấy được số từ dashboard |
-| **Tổng** | **Cần điền từ dashboard trước khi nộp** |
+Người nộp xác nhận mức sử dụng Codex trong ngày làm bài là khoảng **10% hạn mức tuần**, và trong ngày đó chỉ làm bài này. Không có breakdown theo phase hoặc quy đổi từ phần trăm hạn mức sang số token/chi phí trong workspace. Bảng dưới là **ước tính phân bổ theo thời lượng phase trong [GUIDE](../../GUIDE.md)**, với giả định mức dùng đều theo giờ; không phải số đo trực tiếp từ dashboard.
 
-Workspace không cung cấp telemetry token/chi phí theo phase. Không tự ước lượng để tránh ghi sai. Cách tiết kiệm đang dùng: mô phỏng Node built-in, không cài engine/dependency nặng, một bộ tuning, verifier chạy nhiều scenario cùng lệnh và giới hạn benchmark theo cấu hình ticket.
+| Phase | Thời lượng dùng để phân bổ | Ước tính hạn mức tuần |
+|---|---:|---:|
+| 1 | 1 giờ | 2,5% |
+| 2 | 1 giờ | 2,5% |
+| 3 | 0,5 giờ | 1,25% |
+| 4 | 1,5 giờ | 3,75% |
+| **Tổng** | **4 giờ** | **10%** |
+
+Các tỷ lệ theo phase chỉ là ước tính để phản ánh tổng mức dùng đã cung cấp; muốn ghi số token hoặc chi phí thực tế cần lấy breakdown của từng chat từ dashboard.
+
+Cách tiết kiệm đang dùng: mô phỏng Node built-in, không cài engine/dependency nặng, một bộ tuning, verifier chạy nhiều scenario cùng lệnh và giới hạn benchmark theo cấu hình ticket.
