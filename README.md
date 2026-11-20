@@ -1,6 +1,8 @@
 # Đảo Đèn Lồng
 
-> **Trạng thái nộp:** video demo và ảnh chụp game chưa được tạo; browser benchmark chưa hoàn tất trên máy phát triển. Chi tiết trong [bằng chứng Phase 4](docs/proof/phase-4.md).
+> **Video demo:** [xem MP4 (4:13)](docs/demo/demo.mp4). Ảnh gameplay: [mở ảnh](docs/demo/gameplay.jpg). Browser benchmark hiện chưa có report hợp lệ; chi tiết ở [bằng chứng Phase 4](docs/proof/phase-4.md).
+
+![Ảnh gameplay Đảo Đèn Lồng](docs/demo/gameplay.jpg)
 
 Game phiêu lưu 3D góc nhìn thứ ba trên ba hòn đảo giữa biển mây. Điều khiển Mây gom đom đóm, thắp đèn và tránh Bóng Mực qua ba đêm. Renderer WebGL tự viết; mô phỏng headless chạy bằng Node.js, không cần thư viện ngoài.
 
@@ -67,5 +69,6 @@ Các phần trình bày nằm trong [renderer](src/renderer.js); kiểm tra mô 
 - [Contract](game.contract.json), [lịch sử thay đổi](CHANGELOG.md), [đặc tả Phase 2](docs/spec/phase-2.md).
 - [Giả định Phase 1](docs/notes/phase-1.md), [quyết định và kế hoạch Phase 3](docs/notes/phase-3.md).
 - [Ghi chú Phase 4](docs/notes/phase-4.md), [retro](docs/notes/retro.md), [bằng chứng Phase 1](docs/proof/phase-1.md), [Phase 2](docs/proof/phase-2.md), [Phase 3](docs/proof/phase-3.md), [Phase 4](docs/proof/phase-4.md).
+- [Kịch bản quay video demo và vị trí lưu media](docs/demo/QUAY-DEMO.md).
 - [Hướng dẫn agent](AGENTS.md), [CREDITS](CREDITS.md), [LICENSE](LICENSE), [checklist nộp bài](SUBMISSION.md).
-- Trạng thái checkout được kiểm tra hiện không có tag Git; cần tạo các tag phase và Release `v1.0.0` theo checklist khi chuẩn bị nộp.
+- Trạng thái checkout trước đó chưa có tag Git; kiểm tra lại tag `phase-1` đến `phase-4` và Release `v1.0.0` trên GitHub trước khi nộp.
